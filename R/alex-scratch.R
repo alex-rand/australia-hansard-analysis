@@ -5,9 +5,13 @@ source("R/pipeline/utils.R")
 dat_raw <- load_data(use_cache = TRUE)
 dat_clean <- clean_data(dat_raw, use_cache = FALSE)
 
-dat_clean %>% 
+dat_clean |> 
   
-  distinct(name, .keep_all = TRUE) %>% 
+  dplyr::distinct(name, .keep_all = TRUE) |> 
+  
+  dplyr::filter(is.na(unique_id)) |> 
+  
+  tibble::view()
   
   view()
 

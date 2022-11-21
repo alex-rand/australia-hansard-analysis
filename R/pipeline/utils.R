@@ -5,7 +5,7 @@
 
 align_timestamp <- function(dat){
   
-  res <- dat |> mutate(time.stamp = as.character(time.stamp))
+  res <- dat |> dplyr::mutate(time.stamp = as.character(time.stamp))
   
   res
   
@@ -41,7 +41,7 @@ standardize_names <- function(dat){
   
   res <- dat |> 
     
-    mutate(
+    dplyr::mutate(
       name = stringr::str_to_lower(name), # all to lowercase
       name = stringr::str_remove_all(name, "\\(.*\\)"), # aemove anything in parentheses
       name = stringr::str_remove_all(name, "[[:punct:]]"), # remove all punctuation
@@ -138,7 +138,7 @@ resolve_formal_titles_abbreviated <- function(dat){
     
     tidyr::separate(name, into = c("1", "2", "3"), remove = FALSE) |>  
     
-   dplyr:: mutate(
+   dplyr::mutate(
       
       last_name     = ifelse(is.na(`3`) & nchar(`1`) <= 3, `2`, `1`),
       first_name    = ifelse(is.na(`3`) & nchar(`1`) <= 3, NA_character_, `2`)
@@ -148,7 +148,7 @@ resolve_formal_titles_abbreviated <- function(dat){
     dplyr::group_by(last_name) |> 
     
     # how many first names are associated with this last name?
-    dplyr::mutate(n_this_name = n_distinct(first_name, na.rm = TRUE)) |>  
+    dplyr::mutate(n_this_name = dplyr::n_distinct(first_name, na.rm = TRUE)) |>  
     
     dplyr::filter(n_this_name == 1) |> 
     
