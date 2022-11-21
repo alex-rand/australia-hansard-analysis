@@ -3,12 +3,12 @@
 ##### since the platform doesn't seem to offer a 
 ##### a 'download all' button
 
-load_data <- function(){
+load_data <- function(use_cache = TRUE){
   
   cache_path <- "data/dat-raw.rds"
   
   ### Try to load cached data 
-  if(file.exists(cache_path)) {
+  if(file.exists(cache_path) & use_cache == TRUE) {
     res <- readRDS(cache_path)
     return(res)
   }
