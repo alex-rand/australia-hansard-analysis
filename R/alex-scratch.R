@@ -1,3 +1,5 @@
+library(tidyverse)
+
 source("R/pipeline/load-data.R")
 source("R/pipeline/clean-data.R")
 source("R/pipeline/utils.R")
@@ -7,25 +9,48 @@ dat_clean <- clean_data(dat_raw, use_cache = FALSE)
 
 dat_clean |> 
   
-  dplyr::distinct(name, .keep_all = TRUE) |> 
+  distinct(name, .keep_all = TRUE) |> 
   
-  dplyr::filter(is.na(unique_id)) |> 
-  
-  tibble::view()
-  
-  view()
+  ggplot() +
+  geom_bar(aes(x = gender))
 
-  group_by(name) %>% 
+### Still to do:
+
+#   - bring in incumbency status
+#   - see if I can get each person's date of first election
+#   - bring in dates of elections so I can create time until election
+#   - will probably want to aggregate interjection counts by week?
+
+# Found all that nice data from the Australian Electoral Commission:
+https://results.aec.gov.au/
+  
+dat_clean |> 
+  
+  distinct(date) |> 
+  
+  arrange(date) 
+  
+#  select(date)
+  
+  select(
+    date,
+    name, 
+    gender, 
+    party,
+    electorate, 
+    fedchamb_flag,
+    interject,
+    unique_id
+  )
+  
+  colnames()
+
+  group_by(name) |> 
   
   transmute(
-    name = name,
-    jects = sum(interject, na.rm = TRUE)
-  ) %>% 
-  
-  distinct(name, .keep_all = TRUE) %>% 
-  
-  arrange(name) %>% 
-  
-  view()
-
+    name   = name,
+    gender = gender,
+    party  = party,
+    n_interjections = sum(interject)
+  )
 

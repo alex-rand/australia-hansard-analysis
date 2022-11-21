@@ -193,7 +193,9 @@ fill_info_by_member <- function(dat){
     tidyr::fill(electorate, .direction = "downup") |> 
     tidyr::fill(party,      .direction = "downup") |> 
     tidyr::fill(unique_id,  .direction = "downup") |>
-    tidyr::fill(gender,     .direction = "downup")
+    tidyr::fill(gender,     .direction = "downup") |> 
+    
+    ungroup()
   
   res
 

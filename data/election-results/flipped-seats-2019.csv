@@ -1,0 +1,11 @@
+2019 Federal Election House of Representatives seats that changed hands [Event:24310 Phase:FinalResults Generated:2019-07-30T11:10:44 Cycle:02109509-c159-4199-88f6-389818be8a1c Created:2019-07-26T10:57:31 Environment:PROD Site:CANBERRA Server:TALLYROOM Version:10.7.17.56581]
+StateAb,DivisionID,DivisionNm,PreviousPartyAb,PreviousPartyNm,CandidateID,Surname,GivenNm,PartyAb,PartyNm
+TAS,192,Bass,ALP,Australian Labor Party,32124,ARCHER,Bridget,LP,Liberal
+TAS,193,Braddon,ALP,Australian Labor Party,32121,PEARCE,Gavin,LP,Liberal
+VIC,207,Corangamite,LP,Liberal,32298,COKER,Libby,ALP,Australian Labor Party
+VIC,210,Dunkley,LP,Liberal,32352,MURPHY,Peta,ALP,Australian Labor Party
+NSW,120,Gilmore,LP,Liberal,32772,PHILLIPS,Fiona,ALP,Australian Labor Party
+QLD,165,Herbert,ALP,Australian Labor Party,33285,THOMPSON,Phillip,LNP,Liberal National Party
+NSW,128,Lindsay,ALP,Australian Labor Party,33142,McINTOSH,Melissa,LP,Liberal
+QLD,302,Longman,ALP,Australian Labor Party,33384,YOUNG,Terry,LNP,Liberal National Party
+NSW,151,Warringah,LP,Liberal,32467,STEGGALL,Zali,IND,Independent
